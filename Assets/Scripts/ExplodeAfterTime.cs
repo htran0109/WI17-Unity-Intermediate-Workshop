@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplodeAfterTime : MonoBehaviour {
-
-    public GameObject explosion;
-
+	public GameObject explosion = null;
     public float fusetime = 2.0f;
 
 	// Use this for initialization
@@ -18,12 +16,11 @@ public class ExplodeAfterTime : MonoBehaviour {
 		
 	}
 
-    IEnumerator SetFuse()
-    {
+    public IEnumerator SetFuse() {
+		Debug.Log ("Set fuse");
         yield return new WaitForSeconds(fusetime);
-        Instantiate(explosion, transform.position, Quaternion.identity);
-
+		Instantiate(explosion, transform.position, Quaternion.identity);
+		Debug.Log ("kill");
         Destroy(gameObject);
-
     }
 }

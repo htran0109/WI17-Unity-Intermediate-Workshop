@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnInBox : MonoBehaviour {
 
     public GameObject prefab;
-    public int numToSpawn = 5;
     public float timeBetweenSpawn = 2.0f;
 
     private BoxCollider box;
@@ -21,17 +20,14 @@ public class SpawnInBox : MonoBehaviour {
 		
 	}
 
-    IEnumerator SpawnOverTime()
-    {
-        for(int i = 0; i < numToSpawn; i++)
-        {
+    IEnumerator SpawnOverTime() {
+		while(true) {
             SpawnRandom();
             yield return new WaitForSeconds(timeBetweenSpawn);
         }
     }
 
-    void SpawnRandom()
-    {
+    void SpawnRandom() {
         Bounds bounds = box.bounds;
         float x = Random.Range(box.bounds.min.x, box.bounds.max.x);
         Debug.Log("x: " + x);

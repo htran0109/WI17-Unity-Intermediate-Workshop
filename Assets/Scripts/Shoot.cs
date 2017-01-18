@@ -16,14 +16,15 @@ public class Shoot : MonoBehaviour {
         if(Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
+			Debug.DrawRay(transform.position, camera.transform.forward * 50, Color.red, 1);
             if(Physics.Raycast(transform.position, camera.transform.forward, out hit, Mathf.Infinity))
             {
                 Debug.Log("HIT " + hit.transform.gameObject.tag);
                 if (hit.transform.gameObject.tag == "Shootable")
                 {
-                    
-                    //hit.transform.gameObject.GetComponent<Rigidbody>().velocity = camera.transform.forward * force;
                     hit.transform.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(camera.transform.forward * force, hit.point);
+					ExplodeAfterTime explosion = hit.transform.gameObject.GetComponent<ExplodeAfterTime>();
+					explosion.StartCoroutine(explosion.SetFuse());
                 }
             }
         }
