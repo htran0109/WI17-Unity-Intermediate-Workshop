@@ -8,7 +8,7 @@ public class DestoryParticleDone : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ps = gameObject.GetComponent<ParticleSystem>();
-        Destroy(gameObject, ps.duration);
+        //TODO destroy when done
 	}
 	
 	// Update is called once per frame

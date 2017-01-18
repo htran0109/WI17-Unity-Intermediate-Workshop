@@ -6,6 +6,6 @@ public class LoadLevel : MonoBehaviour {
 	public string levelName = "Main";
 
 	void OnTriggerEnter(Collider other) {
-		Application.LoadLevel(levelName);
+        //TODO load a scene
 	}
 }

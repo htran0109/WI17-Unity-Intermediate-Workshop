@@ -22,15 +22,13 @@ public class SpawnInBox : MonoBehaviour {
 
     IEnumerator SpawnOverTime() {
 		while(true) {
-            SpawnRandom();
-            yield return new WaitForSeconds(timeBetweenSpawn);
+            //TODO spawn random prefab and then finish coroutine with yield
         }
     }
 
     void SpawnRandom() {
         Bounds bounds = box.bounds;
         float x = Random.Range(box.bounds.min.x, box.bounds.max.x);
-        Debug.Log("x: " + x);
         float y = Random.Range(box.bounds.min.y, box.bounds.max.y);
         float z = Random.Range(box.bounds.min.z, box.bounds.max.z);
 
@@ -38,8 +36,5 @@ public class SpawnInBox : MonoBehaviour {
         {
             Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity);
         }
-
-        //bounds.min 
-        //Instantiate(prefab, );
     }
 }

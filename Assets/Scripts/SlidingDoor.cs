@@ -28,26 +28,24 @@ public class SlidingDoor : MonoBehaviour {
 		float progress = (Time.time - startTime) / duration;
 
 		if (isOpen) {
-			door.transform.position = Vector3.Lerp(startPosition, openPosition, progress);
+            //TODO lerp from startPosition to openPosition
 		}
 		else {
-			door.transform.position = Vector3.Lerp(startPosition, closePosition, progress);
-		}
-	}
+            //TODO lerp from startPosition to closePosition
+        }
+    }
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			startPosition = door.transform.position;
-			startTime = Time.time;
+            //TODO Update startPosition and starttime
 			isOpen = true;
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			startPosition = door.transform.position;
-			startTime = Time.time;
-			isOpen = false;
+            //TODO Update startPosition and starttime
+            isOpen = false;
 		}
 	}
 }

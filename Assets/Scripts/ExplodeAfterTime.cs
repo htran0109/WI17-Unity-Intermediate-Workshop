@@ -17,10 +17,7 @@ public class ExplodeAfterTime : MonoBehaviour {
 	}
 
     public IEnumerator SetFuse() {
-		Debug.Log ("Set fuse");
-        yield return new WaitForSeconds(fusetime);
-		Instantiate(explosion, transform.position, Quaternion.identity);
-		Debug.Log ("kill");
+        //TODO create explosion prefab after some time
         Destroy(gameObject);
     }
 }
